@@ -20,6 +20,7 @@ let tour = "j1";
 let audio = document.getElementById("audio");
 setInterval(function () {
     let audioTime = audio.currentTime;
+    //console.log(audio.currentTime)
     if (audioTime > 19 && audioTime < 28.7) {
         for (let i = 0; i < marbles.length; i++) {
             marbles[i].classList.add("anim1");
@@ -250,21 +251,23 @@ function phasesJeu(phase) {
                                     <figure class="box">
                                         <img src="./assets/openedBox-${idImg}.png" alt="">
                                     </figure>`;
-            articles[0].classList.add("full");
-            articles[1].classList.add("empty");
-            window.localStorage.setItem('phase', "3");
-            if (tour1 == "j1") {
-                window.localStorage.setItem('tour', "j2");
-            }
-            else if (tour1 == "j2") {
-                window.localStorage.setItem('tour', "j1");
-            }
-            getLocalStorage();
-            const myTimeout = setTimeout(myGreeting, 4000);
-            function myGreeting() {
-                window.localStorage.setItem("phase", "1");
-                phasesJeu("1");
-                inverserJoueurs();
+                articles[0].classList.add("full");
+                articles[1].classList.add("empty");
+                window.localStorage.setItem('phase', "3");
+                if (tour1 == "j1") {
+                    window.localStorage.setItem('tour', "j2");
+                }
+                else if (tour1 == "j2") {
+                    window.localStorage.setItem('tour', "j1");
+                }
+                getLocalStorage();
+                const myTimeout = setTimeout(myGreeting, 2000);
+                function myGreeting() {
+                    window.localStorage.setItem("phase", "1");
+                    phasesJeu("1");
+                    inverserJoueurs();
+                }
+                break;
             }
     }
 }

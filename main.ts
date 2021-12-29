@@ -18,7 +18,8 @@ let tour: string = "j1";
 /*AUDIO*/
 let audio = document.getElementById("audio") as HTMLAudioElement;
 setInterval(function () {
-    let audioTime = audio.currentTime;
+    let audioTime:number = audio.currentTime;
+    //console.log(audio.currentTime)
     if (audioTime > 19 && audioTime < 28.7) {
         for (let i:number = 0; i < marbles.length; i++) {
             marbles[i].classList.add("anim1");
@@ -271,7 +272,7 @@ function phasesJeu(phase: string|null):void {
                 window.localStorage.setItem('tour', "j1");
             }
             getLocalStorage();
-            const myTimeout = setTimeout(myGreeting, 4000);
+            const myTimeout = setTimeout(myGreeting, 2000);
             function myGreeting() {
                 window.localStorage.setItem("phase","1");
                 phasesJeu("1");
